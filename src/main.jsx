@@ -121,7 +121,7 @@ function App() {
 
       <footer>
         <strong>Kanz Media Sunnah</strong>
-        <span>Jazakumullahu khairan katsiran</span>
+        <span>Jazakumullahu khairan </span>
       </footer>
     </main>
   );
