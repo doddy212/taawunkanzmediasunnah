@@ -20,8 +20,8 @@ function rupiah(n) {
 
 function App() {
   const [data, setData] = useState({
-    kebutuhan: 22000000,
-    terkumpul: 3500000,
+  kebutuhan: 0,
+  terkumpul: 0,
   });
 
   useEffect(() => {
