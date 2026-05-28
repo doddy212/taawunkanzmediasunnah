@@ -44,7 +44,7 @@ function App() {
         <div className="heroCard">
          <img
   className="logoImg"
-  src="/logo.png"
+  src="/logoImg.png"
   alt="Kanz Media Sunnah"
 />
           <p className="muted">Target Pengadaan</p>
