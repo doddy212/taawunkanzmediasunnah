@@ -2,8 +2,9 @@ import React from "react";
 import { createRoot } from "react-dom/client";
 import "./style.css";
 
-const kebutuhan = 22000000;
-const terkumpul = 3500000;
+import { donationData } from "./data";
+const kebutuhan = donationData.kebutuhan;
+const terkumpul = donationData.terkumpul;
 const kekurangan = kebutuhan - terkumpul;
 const progress = Math.round((terkumpul / kebutuhan) * 100);
 
