@@ -290,13 +290,14 @@ footer {
   .specCard div {
     grid-template-columns: 1fr;
   }
-
+}
 .logoImg {
   width: 60px;
   height: 60px;
   object-fit: contain;
   border-radius: 50%;
   display: block;
+  margin-bottom: 24px;
 }
 
 .qrisImg {
@@ -306,4 +307,24 @@ footer {
   display: block;
   border-radius: 18px;
 }
+
+@media (max-width: 850px) {
+  .hero,
+  .section.white {
+    grid-template-columns: 1fr;
+  }
+
+  .hero {
+    padding: 52px 20px;
+  }
+
+  .section,
+  .donasi {
+    padding: 64px 20px;
+  }
+
+  .grid2,
+  .specCard div {
+    grid-template-columns: 1fr;
+  }
 }
