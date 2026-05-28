@@ -116,6 +116,8 @@ function App() {
           <button onClick={copyRekening}>Salin Nomor Rekening</button>
         </div>
 
+        <img className="qrisImg" src="/qrisImg.jpeg" alt="QRIS Donasi" />
+
         <blockquote>
           “Apabila seseorang meninggal dunia, maka terputuslah amalannya kecuali
           tiga perkara: sedekah jariyah, ilmu yang bermanfaat, atau doa anak
