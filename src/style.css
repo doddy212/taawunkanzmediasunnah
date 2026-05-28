@@ -291,12 +291,12 @@ footer {
     grid-template-columns: 1fr;
   }
 
-  .logoImg {
-  width: 20px;
-  height: 20px;
-  border-radius: 999px;
+.logoImg {
+  width: 60px;
+  height: 60px;
   object-fit: contain;
-  margin-bottom: 18px;
+  border-radius: 50%;
+  display: block;
 }
 
 .qrisImg {
