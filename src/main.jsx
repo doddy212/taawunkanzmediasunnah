@@ -5,66 +5,6 @@ import "./style.css";
 const SHEET_ID = "1a9VQbzIgHY-hFDe3jd7z6ZLmfUZe-ADEXucZu_65Ivk";
 const SHEET_URL = `https://opensheet.elk.sh/${SHEET_ID}/Sheet1`;
 
-const [data, setData] = useState({
-  kebutuhan: 22000000,
-  terkumpul: 3500000,
-});
-
-useEffect(() => {
-  fetch(SHEET_URL)
-    .then((res) => res.json())
-    .then((rows) => {
-      const row = rows[0];
-
-      setData({
-        kebutuhan: Number(row.kebutuhan),
-        terkumpul: Number(row.terkumpul),
-      });
-    })
-    .catch(() => {
-      console.log("Gagal mengambil data Google Sheet");
-    });
-}, []);
-
-const kebutuhan = data.kebutuhan;
-const terkumpul = data.terkumpul;
-const kekurangan = kebutuhan - terkumpul;
-const progress = Math.round((terkumpul / kebutuhan) * 100);
-
-function rupiah(n) {
-  return new Intl.NumberFormat("id-ID", {
-    style: "currency",
-    currency: "IDR",
-    maximumFractionDigits: 0,
-  }).format(n);
-}
-
-const [data, setData] = useState({
-  kebutuhan: 22000000,
-  terkumpul: 3500000,
-});
-
-useEffect(() => {
-  fetch(SHEET_URL)
-    .then((res) => res.json())
-    .then((rows) => {
-      const row = rows[0];
-
-      setData({
-        kebutuhan: Number(row.kebutuhan),
-        terkumpul: Number(row.terkumpul),
-      });
-    })
-    .catch(() => {
-      console.log("Gagal mengambil data Google Sheet");
-    });
-}, []);
-
-const kebutuhan = data.kebutuhan;
-const terkumpul = data.terkumpul;
-const kekurangan = kebutuhan - terkumpul;
-const progress = Math.round((terkumpul / kebutuhan) * 100);
-
 function rupiah(n) {
   return new Intl.NumberFormat("id-ID", {
     style: "currency",
@@ -74,6 +14,32 @@ function rupiah(n) {
 }
 
 function App() {
+  const [data, setData] = useState({
+    kebutuhan: 22000000,
+    terkumpul: 3500000,
+  });
+
+  useEffect(() => {
+    fetch(SHEET_URL)
+      .then((res) => res.json())
+      .then((rows) => {
+        const row = rows[0];
+
+        setData({
+          kebutuhan: Number(row.kebutuhan),
+          terkumpul: Number(row.terkumpul),
+        });
+      })
+      .catch(() => {
+        console.log("Gagal mengambil data Google Sheet");
+      });
+  }, []);
+
+  const kebutuhan = data.kebutuhan;
+  const terkumpul = data.terkumpul;
+  const kekurangan = kebutuhan - terkumpul;
+  const progress = Math.round((terkumpul / kebutuhan) * 100);
+
   const copyRekening = async () => {
     try {
       await navigator.clipboard.writeText("2902903760");
@@ -100,16 +66,14 @@ function App() {
         </div>
 
         <div className="heroCard">
-         <img
-  className="logoImg"
-  src="/logoImg.png"
-  alt="Kanz Media Sunnah"
-/>
+          <img className="logoImg" src="/logoImg.png" alt="Kanz Media Sunnah" />
           <p className="muted">Target Pengadaan</p>
           <h2>{rupiah(kebutuhan)}</h2>
+
           <div className="progress">
             <span style={{ width: `${progress}%` }} />
           </div>
+
           <p className="muted">{progress}% dana terkumpul</p>
 
           <div className="grid2">
@@ -137,7 +101,7 @@ function App() {
           </p>
         </div>
 
-          <div className="benefits">
+        <div className="benefits">
           <div>Mendukung live streaming kajian dan dauroh</div>
           <div>Meningkatkan kualitas dokumentasi dakwah</div>
           <div>Mempermudah editing video dan konten</div>
@@ -146,37 +110,33 @@ function App() {
         </div>
       </section>
 
-       <section className="profil">
-  <p className="label">Profil Singkat</p>
+      <section className="profil">
+        <p className="label">Profil Singkat</p>
+        <h2>Kanz Media Sunnah</h2>
 
-  <h2>Kanz Media Sunnah</h2>
+        <p>
+          Kanz Media Sunnah aktif membantu pelaksanaan dokumentasi dan peliputan
+          kajian di berbagai masjid dan majelis taklim. Kegiatan yang dilakukan
+          meliputi live streaming, dokumentasi video, publikasi media dakwah,
+          serta distribusi konten kajian melalui platform digital.
+        </p>
 
-  <p>
-    Kanz Media Sunnah aktif membantu pelaksanaan dokumentasi dan
-    peliputan kajian di berbagai masjid dan majelis taklim.
-    Kegiatan yang dilakukan meliputi live streaming,
-    dokumentasi video, publikasi media dakwah,
-    serta distribusi konten kajian melalui platform digital.
-  </p>
+        <div className="profilBox">
+          <h3>Beberapa kegiatan dakwah yang pernah dibantu:</h3>
+          <ul>
+            <li>Masjid Baitussalam Cilandak</li>
+            <li>Sesama Project</li>
+            <li>MT MIMS</li>
+            <li>MT Ihrish</li>
+            <li>Serta berbagai masjid dan majelis taklim lainnya</li>
+          </ul>
+        </div>
 
-  <div className="profilBox">
-    <h3>Beberapa kegiatan dakwah yang pernah dibantu:</h3>
-
-    <ul>
-      <li>Masjid Baitussalam Cilandak</li>
-      <li>Sesama Project</li>
-      <li>MT MIMS</li>
-      <li>MT Ihrish</li>
-      <li>Serta berbagai masjid dan majelis taklim lainnya</li>
-    </ul>
-  </div>
-
-  <p>
-    Dengan dukungan media yang baik, kajian dan dakwah dapat
-    diakses lebih mudah oleh masyarakat luas.
-  </p>
-</section>
-
+        <p>
+          Dengan dukungan media yang baik, kajian dan dakwah dapat diakses lebih
+          mudah oleh masyarakat luas.
+        </p>
+      </section>
 
       <section id="spesifikasi" className="section">
         <p className="label">Rencana Kebutuhan</p>
@@ -217,7 +177,7 @@ function App() {
 
       <footer>
         <strong>Kanz Media Sunnah</strong>
-        <span>Jazakumullahu khairan </span>
+        <span>Jazakumullahu khairan</span>
       </footer>
     </main>
   );
