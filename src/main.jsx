@@ -1,10 +1,41 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { createRoot } from "react-dom/client";
 import "./style.css";
 
-import { donationData } from "./data";
-const kebutuhan = donationData.kebutuhan;
-const terkumpul = donationData.terkumpul;
+const SHEET_ID = "1a9VQbzIgHY-hFDe3jd7z6ZLmfUZe-ADEXucZu_65Ivk";
+const SHEET_URL = `https://opensheet.elk.sh/${SHEET_ID}/Sheet1`;
+
+function rupiah(n) {
+  return new Intl.NumberFormat("id-ID", {
+    style: "currency",
+    currency: "IDR",
+    maximumFractionDigits: 0,
+  }).format(n);
+}
+
+const [data, setData] = useState({
+  kebutuhan: 22000000,
+  terkumpul: 3500000,
+});
+
+useEffect(() => {
+  fetch(SHEET_URL)
+    .then((res) => res.json())
+    .then((rows) => {
+      const row = rows[0];
+
+      setData({
+        kebutuhan: Number(row.kebutuhan),
+        terkumpul: Number(row.terkumpul),
+      });
+    })
+    .catch(() => {
+      console.log("Gagal mengambil data Google Sheet");
+    });
+}, []);
+
+const kebutuhan = data.kebutuhan;
+const terkumpul = data.terkumpul;
 const kekurangan = kebutuhan - terkumpul;
 const progress = Math.round((terkumpul / kebutuhan) * 100);
 
