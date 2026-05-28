@@ -3,7 +3,7 @@ import { createRoot } from "react-dom/client";
 import "./style.css";
 
 const SHEET_ID = "1a9VQbzIgHY-hFDe3jd7z6ZLmfUZe-ADEXucZu_65Ivk";
-const SHEET_URL = `https://opensheet.elk.sh/${SHEET_ID}/Sheet1`;
+const SHEET_URL = `https://opensheet.elk.sh/${SHEET_ID}/website`;
 
 function angka(value, fallback) {
   const result = Number(String(value || "").replace(/\D/g, ""));
