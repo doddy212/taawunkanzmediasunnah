@@ -5,6 +5,11 @@ import "./style.css";
 const SHEET_ID = "1a9VQbzIgHY-hFDe3jd7z6ZLmfUZe-ADEXucZu_65Ivk";
 const SHEET_URL = `https://opensheet.elk.sh/${SHEET_ID}/Sheet1`;
 
+function angka(value, fallback) {
+  const result = Number(String(value || "").replace(/\D/g, ""));
+  return result || fallback;
+}
+
 function rupiah(n) {
   return new Intl.NumberFormat("id-ID", {
     style: "currency",
@@ -23,11 +28,11 @@ function App() {
     fetch(SHEET_URL)
       .then((res) => res.json())
       .then((rows) => {
-        const row = rows[0];
+        const row = rows[0] || {};
 
         setData({
-          kebutuhan: Number(row.kebutuhan),
-          terkumpul: Number(row.terkumpul),
+          kebutuhan: angka(row.kebutuhan || row.Kebutuhan, 22000000),
+          terkumpul: angka(row.terkumpul || row.Terkumpul, 3500000),
         });
       })
       .catch(() => {
@@ -37,8 +42,10 @@ function App() {
 
   const kebutuhan = data.kebutuhan;
   const terkumpul = data.terkumpul;
-  const kekurangan = kebutuhan - terkumpul;
-  const progress = Math.round((terkumpul / kebutuhan) * 100);
+  const kekurangan = Math.max(kebutuhan - terkumpul, 0);
+  const progress = kebutuhan > 0
+    ? Math.min(Math.round((terkumpul / kebutuhan) * 100), 100)
+    : 0;
 
   const copyRekening = async () => {
     try {
