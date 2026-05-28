@@ -79,7 +79,16 @@ function App() {
           </p>
         </div>
 
-        <section className="profil">
+          <div className="benefits">
+          <div>Mendukung live streaming kajian dan dauroh</div>
+          <div>Meningkatkan kualitas dokumentasi dakwah</div>
+          <div>Mempermudah editing video dan konten</div>
+          <div>Menjaga kestabilan siaran dakwah</div>
+          <div>Menjadi sarana amal jariyah</div>
+        </div>
+      </section>
+
+       <section className="profil">
   <p className="label">Profil Singkat</p>
 
   <h2>Kanz Media Sunnah</h2>
@@ -110,14 +119,6 @@ function App() {
   </p>
 </section>
 
-        <div className="benefits">
-          <div>Mendukung live streaming kajian dan dauroh</div>
-          <div>Meningkatkan kualitas dokumentasi dakwah</div>
-          <div>Mempermudah editing video dan konten</div>
-          <div>Menjaga kestabilan siaran dakwah</div>
-          <div>Menjadi sarana amal jariyah</div>
-        </div>
-      </section>
 
       <section id="spesifikasi" className="section">
         <p className="label">Rencana Kebutuhan</p>
