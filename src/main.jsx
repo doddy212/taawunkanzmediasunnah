@@ -5,6 +5,11 @@ import "./style.css";
 const SHEET_ID = "1a9VQbzIgHY-hFDe3jd7z6ZLmfUZe-ADEXucZu_65Ivk";
 const SHEET_URL = `https://opensheet.elk.sh/${SHEET_ID}/Sheet1`;
 
+const kebutuhan = 22000000;
+const terkumpul = 3500000;
+const kekurangan = kebutuhan - terkumpul;
+const progress = Math.round((terkumpul / kebutuhan) * 100);
+
 function rupiah(n) {
   return new Intl.NumberFormat("id-ID", {
     style: "currency",
