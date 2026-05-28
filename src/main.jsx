@@ -79,6 +79,37 @@ function App() {
           </p>
         </div>
 
+        <section className="profil">
+  <p className="label">Profil Singkat</p>
+
+  <h2>Kanz Media Sunnah</h2>
+
+  <p>
+    Kanz Media Sunnah aktif membantu pelaksanaan dokumentasi dan
+    peliputan kajian di berbagai masjid dan majelis taklim.
+    Kegiatan yang dilakukan meliputi live streaming,
+    dokumentasi video, publikasi media dakwah,
+    serta distribusi konten kajian melalui platform digital.
+  </p>
+
+  <div className="profilBox">
+    <h3>Beberapa kegiatan dakwah yang pernah dibantu:</h3>
+
+    <ul>
+      <li>Masjid Baitussalam Cilandak</li>
+      <li>Sesama Project</li>
+      <li>MT MIMS</li>
+      <li>MT Ihrish</li>
+      <li>Serta berbagai masjid dan majelis taklim lainnya</li>
+    </ul>
+  </div>
+
+  <p>
+    Dengan dukungan media yang baik, kajian dan dakwah dapat
+    diakses lebih mudah oleh masyarakat luas.
+  </p>
+</section>
+
         <div className="benefits">
           <div>Mendukung live streaming kajian dan dauroh</div>
           <div>Meningkatkan kualitas dokumentasi dakwah</div>
